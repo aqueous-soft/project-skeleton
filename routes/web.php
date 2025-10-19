@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
-use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
-Route::get('/', fn (): View => view('welcome'));
+Route::get('/', fn () => Inertia::render('Welcome', [
+    'version' => app()->version(),
+]));

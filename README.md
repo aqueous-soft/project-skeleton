@@ -1,57 +1,48 @@
-- Blade (this project) version: **[github.com/nunomaduro/laravel-starter-kit](https://github.com/nunomaduro/laravel-starter-kit)**
-- Inertia & React version: **[github.com/nunomaduro/laravel-starter-kit-inertia-react](https://github.com/nunomaduro/laravel-starter-kit-inertia-react)**
+# Skeleton Project
 
+**Skeleton Project** is a modern skeleton laravel app built with **Laravel**, **VUE**, **Inertia.js**, **TailwindCSS**, **Ziggy**
 
-<p align="center">
-    <a href="https://youtu.be/VhzP0XWGTC4" target="_blank">
-        <img src="/art/banner.png" alt="Overview Laravel Starter Kit" style="width:70%;">
-    </a>
-</p>
-
-<p>
-    <a href="https://github.com/nunomaduro/laravel-starter-kit/actions"><img src="https://github.com/nunomaduro/laravel-starter-kit/actions/workflows/tests.yml/badge.svg" alt="Build Status"></a>
-    <a href="https://packagist.org/packages/nunomaduro/laravel-starter-kit"><img src="https://img.shields.io/packagist/dt/nunomaduro/laravel-starter-kit" alt="Total Downloads"></a>
-    <a href="https://packagist.org/packages/nunomaduro/laravel-starter-kit"><img src="https://img.shields.io/packagist/v/nunomaduro/laravel-starter-kit" alt="Latest Stable Version"></a>
-    <a href="https://packagist.org/packages/nunomaduro/laravel-starter-kit"><img src="https://img.shields.io/packagist/l/nunomaduro/laravel-starter-kit" alt="License"></a>
-</p>
-
-**Laravel Starter Kit** is an ultra-strict, type-safe [Laravel](https://laravel.com) skeleton engineered for developers who refuse to compromise on code quality. This opinionated starter kit enforces rigorous development standards through meticulous tooling configuration and architectural decisions that prioritize type safety, immutability, and fail-fast principles.
-
-## Why This Starter Kit?
-
-Modern PHP has evolved into a mature, type-safe language, yet many Laravel projects still operate with loose conventions and optional typing. This starter kit changes that paradigm by enforcing:
-
-- **100% Type Coverage**: Every method, property, and parameter is explicitly typed
-- **Zero Tolerance for Code Smells**: Rector and PHPStan at maximum strictness catch issues before they become bugs
-- **Immutable-First Architecture**: Data structures favor immutability to prevent unexpected mutations
-- **Fail-Fast Philosophy**: Errors are caught at compile-time, not runtime
-- **Automated Code Quality**: Pre-configured tools ensure consistent, pristine code across your entire team
-- **Just Better Laravel Defaults**: Thanks to **[Essentials](https://github.com/nunomaduro/essentials)** / strict models, auto eager loading, immutable dates, and more...
-
-This isn't just another Laravel boilerplate—it's a statement that PHP applications can and should be built with the same rigor as strongly-typed languages like Rust or TypeScript.
+Based from: **[github.com/nunomaduro/laravel-starter-kit](https://github.com/nunomaduro/laravel-starter-kit)**
 
 ## Getting Started
 
 > **Requires [PHP 8.4+](https://php.net/releases/)**.
-
-Create your type-safe Laravel application using [Composer](https://getcomposer.org):
-
-```bash
-composer create-project nunomaduro/laravel-starter-kit --prefer-dist example-app
-```
+> **Requires [Docker](https://www.docker.com/)**.
+> **Requires [Docker Compose](https://docs.docker.com/compose/)**.
+> **Requires [Git](https://git-scm.com/)**.
 
 ### Initial Setup
 
 Navigate to your project and complete the setup:
 
 ```bash
-cd example-app
+cd project-skeleton
+
+Build and start Sail
+
+```bash
+./vendor/bin/sail up -d
+```
+
+> If `sail` is not available, you can add an alias:
+
+```bash
+alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
+source ~/.bashrc
+```
+
+> ⚠️ After starting Sail, set correct folder permissions (important for storage & cache):
+
+```bash
+sudo chown -R $USER:www-data .
+chmod -R 775 .
+```
 
 # Setup project
-composer setup
+sail composer setup
 
 # Start the development server
-composer dev
+sail composer dev
 ```
 
 ### Optional: Browser Testing Setup
